@@ -10,14 +10,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
+  const [numPages, setNumPages] = useState(null);
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
 
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+
   return (
     <div>
-      <Container fluid className="resume-section">
+      <Container fluid className="resume-section" id="resume">
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
@@ -32,8 +37,15 @@ function ResumeNew() {
         </Row>
 
         <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+          <Document file={pdf} className="d-flex flex-column align-items-center" onLoadSuccess={onDocumentLoadSuccess}>
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page 
+                key={`page_${index + 1}`} 
+                pageNumber={index + 1} 
+                scale={width > 786 ? 1.7 : 0.6} 
+                className="mb-4"
+              />
+            ))}
           </Document>
         </Row>
 

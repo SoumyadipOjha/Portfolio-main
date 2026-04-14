@@ -1,0 +1,394 @@
+/* ========================================= */
+/* SPIDER-MAN GAME UI - IMMERSIVE OVERLAY    */
+/* ========================================= */
+
+/* ---- HUD OVERLAY ---- */
+.spidey-hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  animation: hud-pulse 3s ease-in-out infinite;
+}
+
+.hud-top-left { top: 15px; left: 15px; }
+.hud-top-right { top: 15px; right: 15px; }
+.hud-bottom-left { bottom: 15px; left: 15px; }
+.hud-bottom-right { bottom: 15px; right: 15px; }
+
+.hud-bracket {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hud-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ---- HANGING HERO ---- */
+.spidey-hanging {
+  position: fixed;
+  top: 0;
+  right: 100px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: hang-enter 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+             hang-exit 1.2s ease-in 4s forwards;
+}
+
+.web-thread {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 0;
+  background: linear-gradient(to bottom, 
+    rgba(255,255,255,0.9), 
+    rgba(200,200,200,0.5) 40%,
+    rgba(180,180,180,0.3));
+  animation: thread-drop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  box-shadow: 0 0 8px rgba(255,255,255,0.3), 0 0 15px rgba(226, 54, 54, 0.1);
+}
+
+@keyframes thread-drop {
+  from { height: 0; }
+  to { height: 200px; }
+}
+
+.spidey-body {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+}
+
+.spidey-svg {
+  width: 90px;
+  height: 155px;
+  filter: drop-shadow(0 0 20px rgba(226, 54, 54, 0.4)) 
+         drop-shadow(0 0 40px rgba(226, 54, 54, 0.15));
+}
+
+.hanging-anim {
+  animation: 
+    body-drop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    gentle-swing 2.5s ease-in-out 1.4s infinite;
+}
+
+@keyframes body-drop {
+  from { transform: translateX(-50%) translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  to { transform: translateX(-50%) translateY(185px); opacity: 1; }
+}
+
+@keyframes gentle-swing {
+  0%, 100% { transform: translateX(-50%) translateY(185px) rotate(0deg); }
+  30% { transform: translateX(-50%) translateY(185px) rotate(4deg); }
+  70% { transform: translateX(-50%) translateY(185px) rotate(-4deg); }
+}
+
+@keyframes hang-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hang-exit {
+  0% { opacity: 1; transform: translateY(0); }
+  20% { transform: translateY(5px); }
+  100% { opacity: 0; transform: translateY(-350px); }
+}
+
+/* ---- SWINGING HERO ---- */
+.spidey-swinging {
+  position: fixed;
+  z-index: 9997;
+  pointer-events: none;
+  animation: swing-across 3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.spidey-swing-svg {
+  width: 120px;
+  height: 140px;
+  filter: drop-shadow(0 0 25px rgba(226, 54, 54, 0.5))
+         drop-shadow(0 0 50px rgba(226, 54, 54, 0.2));
+  animation: swing-rotate 3s ease-in-out forwards;
+}
+
+.swing-web {
+  position: absolute;
+  top: -250px;
+  left: 55%;
+  width: 1.5px;
+  height: 300px;
+  background: linear-gradient(to bottom, 
+    rgba(255,255,255,0.6) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(200,200,200,0.1) 100%);
+  transform-origin: top center;
+  animation: web-swing 3s ease-in-out forwards;
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+
+@keyframes swing-across {
+  0% { 
+    top: 25%;
+    left: -200px;
+    transform: rotate(-25deg);
+  }
+  20% {
+    top: 12%;
+  }
+  50% {
+    top: 8%;
+    left: 45%;
+    transform: rotate(0deg);
+  }
+  80% {
+    top: 12%;
+  }
+  100% {
+    top: 25%;
+    left: calc(100% + 200px);
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes swing-rotate {
+  0% { transform: rotate(20deg) scaleX(-1); }
+  25% { transform: rotate(-8deg) scaleX(-1); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(12deg); }
+}
+
+@keyframes web-swing {
+  0% { transform: rotate(25deg); }
+  50% { transform: rotate(-15deg); }
+  100% { transform: rotate(20deg); }
+}
+
+/* ---- DANGLING WEB STRINGS ---- */
+.web-string-drop {
+  position: fixed;
+  top: -10px;
+  z-index: 5;
+  pointer-events: none;
+  animation: web-fall 6s ease-in-out forwards;
+}
+
+.web-string-line {
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.02));
+  margin: 0 auto;
+  animation: string-grow 2s ease-out forwards;
+  box-shadow: 0 0 3px rgba(255,255,255,0.1);
+}
+
+.web-droplet {
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 6px rgba(226, 54, 54, 0.2);
+}
+
+@keyframes string-grow {
+  from { height: 0; }
+  to { height: inherit; }
+}
+
+@keyframes web-fall {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 0.5; transform: translateY(0); }
+  80% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* ---- TAP WEB BURST (MOBILE + DESKTOP) ---- */
+.web-tap-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  animation: web-burst-anim 0.7s ease-out forwards;
+}
+
+.web-burst-svg {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 0 8px rgba(226, 54, 54, 0.5));
+}
+
+@keyframes web-burst-anim {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.2) rotate(45deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* ---- MOBILE RESPONSIVE ---- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .spidey-hanging {
+    right: 60px;
+  }
+
+  .spidey-svg {
+    width: 70px;
+    height: 120px;
+  }
+
+  .spidey-swing-svg {
+    width: 90px;
+    height: 110px;
+  }
+
+  .hud-corner {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 767px) {
+  .spidey-hanging {
+    right: 15px;
+  }
+
+  .spidey-svg {
+    width: 50px;
+    height: 85px;
+  }
+
+  @keyframes thread-drop {
+    from { height: 0; }
+    to { height: 120px; }
+  }
+
+  @keyframes body-drop {
+    from { transform: translateX(-50%) translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    to { transform: translateX(-50%) translateY(110px); opacity: 1; }
+  }
+
+  @keyframes gentle-swing {
+    0%, 100% { transform: translateX(-50%) translateY(110px) rotate(0deg); }
+    30% { transform: translateX(-50%) translateY(110px) rotate(3deg); }
+    70% { transform: translateX(-50%) translateY(110px) rotate(-3deg); }
+  }
+
+  /* Show swinging but smaller */
+  .spidey-swinging {
+    animation: swing-across-mobile 2.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  }
+
+  .spidey-swing-svg {
+    width: 60px;
+    height: 70px;
+    filter: drop-shadow(0 0 12px rgba(226, 54, 54, 0.4));
+  }
+
+  .swing-web {
+    height: 150px;
+    top: -120px;
+  }
+
+  @keyframes swing-across-mobile {
+    0% { 
+      top: 30%;
+      left: -100px;
+      transform: rotate(-20deg);
+    }
+    50% {
+      top: 15%;
+      left: 40%;
+      transform: rotate(0deg);
+    }
+    100% {
+      top: 30%;
+      left: calc(100% + 100px);
+      transform: rotate(20deg);
+    }
+  }
+
+  /* Fewer web strings */
+  .web-string-drop:nth-child(even) {
+    display: none;
+  }
+
+  .hud-corner {
+    width: 30px;
+    height: 30px;
+    opacity: 0.4;
+  }
+
+  .hud-top-left { top: 8px; left: 8px; }
+  .hud-top-right { top: 8px; right: 8px; }
+  .hud-bottom-left { bottom: 8px; left: 8px; }
+  .hud-bottom-right { bottom: 8px; right: 8px; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .spidey-hanging {
+    right: 10px;
+  }
+
+  .spidey-svg {
+    width: 40px;
+    height: 68px;
+  }
+
+  @keyframes thread-drop {
+    from { height: 0; }
+    to { height: 80px; }
+  }
+
+  @keyframes body-drop {
+    from { transform: translateX(-50%) translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    to { transform: translateX(-50%) translateY(70px); opacity: 1; }
+  }
+
+  @keyframes gentle-swing {
+    0%, 100% { transform: translateX(-50%) translateY(70px) rotate(0deg); }
+    30% { transform: translateX(-50%) translateY(70px) rotate(2deg); }
+    70% { transform: translateX(-50%) translateY(70px) rotate(-2deg); }
+  }
+
+  .spidey-swing-svg {
+    width: 45px;
+    height: 55px;
+  }
+
+  .web-string-drop {
+    display: none;
+  }
+
+  .hud-corner {
+    width: 25px;
+    height: 25px;
+  }
+}

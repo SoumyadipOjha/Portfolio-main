@@ -4,12 +4,12 @@ import Particle from "../Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/SoumyadipfinalBoss.jpg";
+import laptopImg from "../../Assets/front.png";
 import Toolstack from "./Toolstack";
 
 function About() {
   return (
-    <Container fluid className="about-section">
+    <Container fluid className="about-section" id="about">
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>

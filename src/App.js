@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
 import Certifications from "./components/Certificates/Certifications";
 import Achievement from "./components/Achievement/Achievement";
+import ContactMe from "./components/ContactMe/ContactMe";
 import {
   BrowserRouter as Router,
   Route,
@@ -37,14 +38,19 @@ function App() {
         <Navbar />
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={
+            <>
+              <Home />
+              <About />
+              <Projects />
+              <Certifications />
+              <Achievement />
+            </>
+          } />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/Achievement" element={<Achievement />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <ContactMe />
         <Footer />
       </div>
     </Router>

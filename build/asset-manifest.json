@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a81c79e3.css",
+    "main.js": "/static/js/main.cdecce07.js",
+    "static/media/vms.jpg": "/static/media/vms.b4a4e594c61facd28706.jpg",
+    "static/media/medihelp.jpg": "/static/media/medihelp.440c7839efe002b32d6b.jpg",
+    "static/media/soumya_whbg-photoaidcom-cropped.jpg": "/static/media/soumya_whbg-photoaidcom-cropped.509a8d4b94b3d19dddff.jpg",
+    "static/media/CV2.pdf": "/static/media/CV2.ebee44a43f82c7eca1bc.pdf",
+    "static/media/c6.png": "/static/media/c6.148ec5dbfd5f6def872c.png",
+    "static/media/evergreen.jpg": "/static/media/evergreen.e2f13d72fa587f6ee57e.jpg",
+    "static/media/c3.png": "/static/media/c3.c66bdd1cb5d8fa46ca38.png",
+    "static/media/c4.png": "/static/media/c4.39b84dfcab79219bbc95.png",
+    "static/media/ShaliniSaree.jpeg": "/static/media/ShaliniSaree.8bf4db0d320f56994c21.jpeg",
+    "static/media/c2.png": "/static/media/c2.9ebeb93241b8d07a9e37.png",
+    "static/media/front.png": "/static/media/front.e27aa1fdca0db32c7f3a.png",
+    "static/media/c1.png": "/static/media/c1.4c2dcfef8a4c7099aba5.png",
+    "static/media/videocv.jpg": "/static/media/videocv.6c174325c15c4eac218d.jpg",
+    "static/media/image.png": "/static/media/image.c85cddc10840262e675f.png",
+    "static/media/c7.png": "/static/media/c7.4bacafc68fa62d1d498b.png",
+    "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/pre.svg": "/static/media/pre.4410c5baaa673cc131da.svg",
+    "index.html": "/index.html",
+    "main.a81c79e3.css.map": "/static/css/main.a81c79e3.css.map",
+    "main.cdecce07.js.map": "/static/js/main.cdecce07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a81c79e3.css",
+    "static/js/main.cdecce07.js"
+  ]
+}

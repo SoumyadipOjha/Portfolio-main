@@ -37,7 +37,7 @@ function Certifications() {
   ];
 
   return (
-    <Container fluid className="project-section">
+    <Container fluid className="project-section" id="certifications">
       <Particle />
       <Container>
         <h2 className="text-center mb-5  fw-bold display-6 d-flex align-items-center justify-content-center gap-2">

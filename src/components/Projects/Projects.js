@@ -8,10 +8,11 @@ import vms from "../../Assets/Projects/vms.jpg";
 import shaliniSaree from "../../Assets/Projects/ShaliniSaree.jpeg";
 import weather from "../../Assets/Projects/weather.jpeg";
 import medihelp from "../../Assets/Projects/medihelp.jpg";
+import hr_portal from "../../Assets/Projects/hr_portal.png";
 
 function Projects() {
   return (
-    <Container fluid className="project-section">
+    <Container fluid className="project-section" id="project">
       <Particle />
       <Container>
         <h1 className="project-heading">
@@ -21,6 +22,28 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={hr_portal}
+              isBlog={false}
+              title={<b className="purple">HireFloww</b>}
+              description="HireFloww is a state-of-the-art Human Resources Onboarding Portal built entirely on the MERN stack. It features role-based access, automated email integrations, real-time socket communications for live chat, and a modern UI with glassmorphism and dual-theme support."
+              ghLink="https://github.com/SoumyadipOjha/HR-onboarding-portal"
+              demoLink="https://hr-onboarding-portal.vercel.app"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={vms}
+              isBlog={false}
+              title={ <b className="purple">Smart Serve</b>}
+              description="SmartServe is a smart service request platform for easy issue reporting, real-time tracking, and auto-assignment.It features role-based dashboards, instant alerts, and full service history for efficient facility management."
+              ghLink="https://github.com/SoumyadipOjha/SmartServe-CRM-Frontend"
+              demoLink="https://smart-serve-crm-frontend.vercel.app"              
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={shaliniSaree}
@@ -39,18 +62,7 @@ function Projects() {
               title={ <b className="purple">MEDIHELP</b>}
               description="MediHelp is a smart healthcare web app designed to simplify appointment booking, and manage patient needs efficiently. With features like product sliders, it ensures a seamless user experience from browsing to booking."
               ghLink="https://github.com/SoumyadipOjha/HealthCare"
-              demoLink="https://mediihelp.netlify.app/"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={vms}
-              isBlog={false}
-              title={ <b className="purple">AGAMAN</b>}
-              description="Visitor Management System is a secure and efficient web app that streamlines visitor check-ins, employee-specific notifications . It features personalized access, email alerts, and a dedicated admin dashboard for complete oversight."
-              ghLink="https://github.com/SoumyadipOjha/VisitorManagementSystem_MoveinSync"
-              demoLink="https://agamaan.netlify.app/"              
+              demoLink="https://mediihelp.netlify.app"
             />
           </Col>
 
@@ -64,6 +76,7 @@ function Projects() {
               demoLink="https://evergreeenfitness.netlify.app/"
             />
           </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={freepic}
@@ -74,6 +87,7 @@ function Projects() {
               demoLink="https://searchfoto.netlify.app"
             />
           </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={weather}
@@ -84,7 +98,6 @@ function Projects() {
               demoLink="https://weatherforecaastt.netlify.app/"
             />
           </Col>
-
         </Row>
       </Container>
     </Container>

@@ -34,7 +34,7 @@ function Achievement() {
   ];
 
   return (
-    <Container fluid className="project-section">
+    <Container fluid className="project-section" id="achievement">
       <Particle />
       <Container>
         <h1 className="project-heading">
